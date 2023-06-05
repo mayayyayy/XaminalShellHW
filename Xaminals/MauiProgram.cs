@@ -61,6 +61,7 @@ public static class MauiProgram
 
         //--------Transient ViewModels
 
+        builder.Services.AddTransient<MonkeyDetailPageViewModel>();
         builder.Services.AddTransient<BearDetailsPageViewModel>();
         builder.Services.AddTransient<ElephantDetailPageViewModel>();
         builder.Services.AddTransient<DogDetailPageViewModel>();

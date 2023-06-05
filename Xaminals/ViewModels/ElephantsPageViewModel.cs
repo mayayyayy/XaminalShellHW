@@ -21,9 +21,12 @@ namespace Xaminals.ViewModels
             _dataSource = dataSource;
             Elephants = new ObservableCollection<Animal>(_dataSource.GetElephants());
 
-               //write here the neccesary command to pass both the name of the elephant
-               //and elepahant object itself to the elephant details page
-            SelectCommand = new Command(async (x) => { });
+            SelectCommand = new Command(async (x) => {
+                var naviP = new Dictionary<string, object> { { "Elephant", SelectedElephant } };
+                await Shell.Current.GoToAsync($"elephantdetails", naviP);
+                await Shell.Current.GoToAsync($"elephantdetails?name={SelectedElephant.Name}");
+            
+            });
 
         }
 
